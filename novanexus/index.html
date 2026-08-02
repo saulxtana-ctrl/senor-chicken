@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaNexus — Inteligencia que conecta negocios</title>
+<meta name="description" content="NovaNexus ayuda a negocios locales a automatizar atención al cliente, ventas y reservas con soluciones de inteligencia artificial a medida. Deja de perder clientes por llamadas sin contestar.">
+<meta name="theme-color" content="#0E0B1A">
+
+<!-- Open Graph -->
+<meta property="og:title" content="NovaNexus — Inteligencia que conecta negocios">
+<meta property="og:description" content="Automatiza la atención al cliente, ventas y reservas de tu negocio con IA a medida. Recupera clientes, ahorra tiempo, crece.">
+<meta property="og:type" content="website">
+
+<!-- Favicon: nodo central conectado a red hexagonal de 6 puntos -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='22'%20fill='%230E0B1A'/%3E%3Cg%20stroke='%237C5CFF'%20stroke-width='5'%20fill='none'%3E%3Cline%20x1='50'%20y1='50'%20x2='50'%20y2='12'/%3E%3Cline%20x1='50'%20y1='50'%20x2='82.6'%20y2='31'/%3E%3Cline%20x1='50'%20y1='50'%20x2='82.6'%20y2='69'/%3E%3Cline%20x1='50'%20y1='50'%20x2='50'%20y2='88'/%3E%3Cline%20x1='50'%20y1='50'%20x2='17.4'%20y2='69'/%3E%3Cline%20x1='50'%20y1='50'%20x2='17.4'%20y2='31'/%3E%3C/g%3E%3Cg%20fill='%237C5CFF'%3E%3Ccircle%20cx='50'%20cy='12'%20r='6'/%3E%3Ccircle%20cx='82.6'%20cy='31'%20r='6'/%3E%3Ccircle%20cx='82.6'%20cy='69'%20r='6'/%3E%3Ccircle%20cx='50'%20cy='88'%20r='6'/%3E%3Ccircle%20cx='17.4'%20cy='69'%20r='6'/%3E%3Ccircle%20cx='17.4'%20cy='31'%20r='6'/%3E%3C/g%3E%3Ccircle%20cx='50'%20cy='50'%20r='11'%20fill='%23FFB454'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#0E0B1A;
+  --ink-soft:#191430;
+  --violet:#7C5CFF;
+  --violet-dark:#6743F0;
+  --amber:#FFB454;
+  --white:#F5F3FF;
+  --slate:#6B7280;
+  --border:rgba(14,11,26,0.09);
+  --border-dark:rgba(245,243,255,0.12);
+  --radius-lg:20px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --shadow:0 24px 48px -24px rgba(14,11,26,0.28);
+  --shadow-sm:0 8px 24px -12px rgba(14,11,26,0.18);
+  --container:1140px;
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:#fff;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4,.wordmark{font-family:'Space Grotesk',sans-serif;line-height:1.15;letter-spacing:-0.01em;}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;}
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 24px;}
+section{position:relative;}
+.section-pad{padding:96px 0;}
+@media (max-width:768px){.section-pad{padding:64px 0;}}
+
+.eyebrow{
+  display:inline-flex;align-items:flex-start;gap:8px;
+  font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--violet-dark);margin-bottom:14px;
+}
+.eyebrow::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:16px;color:var(--ink);}
+.section-head p{color:var(--slate);font-size:1.05rem;}
+.on-dark .eyebrow{color:var(--amber);}
+.on-dark .section-head h2{color:var(--white);}
+.on-dark .section-head p{color:rgba(245,243,255,0.65);}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;border-radius:999px;font-weight:600;font-size:.98rem;
+  border:1.5px solid transparent;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,border-color .2s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--amber);color:var(--ink);}
+.btn-primary:hover{box-shadow:0 12px 28px -10px rgba(255,180,84,.55);transform:translateY(-2px);}
+.btn-outline{background:transparent;border-color:var(--border-dark);color:var(--white);}
+.btn-outline:hover{border-color:var(--white);}
+.btn-ghost{background:rgba(124,92,255,.08);color:var(--violet-dark);}
+.btn-ghost:hover{background:rgba(124,92,255,.15);}
+.btn-block{width:100%;}
+.btn svg{width:18px;height:18px;flex-shrink:0;}
+
+/* ============ BRAND MARK ============ */
+.brandmark{width:34px;height:34px;flex-shrink:0;}
+.wordmark{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:700;color:var(--ink);}
+.on-dark .wordmark{color:var(--white);}
+.node-pulse{transform-origin:50px 50px;animation:pulse 3s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.18);opacity:.85;}}
+@media (prefers-reduced-motion:reduce){.node-pulse{animation:none;}}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  padding:18px 0;transition:all .35s ease;
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.nav.scrolled{background:rgba(14,11,26,0.92);backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 8px 24px -16px rgba(0,0,0,.4);}
+.nav-links{display:none;align-items:center;gap:34px;}
+.nav-links a{font-size:.92rem;font-weight:500;color:rgba(245,243,255,.82);transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta-wrap{display:none;}
+.nav-right{display:flex;align-items:center;gap:18px;}
+.hamburger{
+  display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:6px;z-index:600;
+}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-nav{
+  position:fixed;inset:0;background:var(--ink);z-index:550;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  transform:translateY(-100%);transition:transform .4s cubic-bezier(.77,0,.175,1);
+}
+.mobile-nav.open{transform:translateY(0);}
+.mobile-nav a{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:600;color:var(--white);}
+.mobile-nav .btn{margin-top:12px;}
+
+@media (min-width:900px){
+  .nav-links{display:flex;}
+  .nav-cta-wrap{display:flex;}
+  .hamburger{display:none;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  background:radial-gradient(120% 100% at 50% -10%, #1b1436 0%, var(--ink) 55%);
+  color:var(--white);
+  padding:150px 0 110px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-net{position:absolute;inset:0;pointer-events:none;opacity:.55;}
+.hero-net svg{width:100%;height:100%;}
+.hero-content{position:relative;z-index:2;max-width:720px;margin:0 auto;text-align:center;}
+.hero-content .eyebrow{justify-content:center;}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.6rem);margin-bottom:22px;}
+.hero h1 span{color:var(--amber);}
+.hero-sub{font-size:1.15rem;color:rgba(245,243,255,.75);max-width:560px;margin:0 auto 38px;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;}
+.hero-trust{margin-top:36px;font-size:.85rem;color:rgba(245,243,255,.5);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;}
+.hero-trust span{display:flex;align-items:center;gap:8px;}
+.hero-trust svg{width:15px;height:15px;color:var(--amber);flex-shrink:0;}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.reveal-stagger.is-visible .reveal-item:nth-child(1){transition-delay:.05s;}
+.reveal-stagger.is-visible .reveal-item:nth-child(2){transition-delay:.15s;}
+.reveal-stagger.is-visible .reveal-item:nth-child(3){transition-delay:.25s;}
+.reveal-stagger.is-visible .reveal-item:nth-child(4){transition-delay:.35s;}
+
+/* ============ PROBLEMA ============ */
+.problem{background:var(--white);}
+.problem-grid{display:grid;gap:24px;grid-template-columns:1fr;}
+.problem-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:32px;transition:transform .25s ease,box-shadow .25s ease;
+}
+.problem-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);}
+.problem-icon{
+  width:52px;height:52px;border-radius:14px;background:rgba(124,92,255,.1);
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--violet-dark);
+}
+.problem-icon svg{width:26px;height:26px;}
+.problem-card h3{font-size:1.15rem;margin-bottom:10px;}
+.problem-card p{color:var(--slate);font-size:.96rem;}
+@media (min-width:768px){.problem-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ============ SERVICIOS ============ */
+.services{background:linear-gradient(180deg,#F5F3FF 0%,#fff 100%);}
+.services-grid{display:grid;gap:22px;grid-template-columns:1fr;}
+.service-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:30px;box-shadow:var(--shadow-sm);transition:transform .25s ease,border-color .25s ease;
+  display:flex;flex-direction:column;
+}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(124,92,255,.35);}
+.service-icon{
+  width:54px;height:54px;border-radius:16px;
+  background:linear-gradient(135deg,var(--violet) 0%,var(--violet-dark) 100%);
+  display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:#fff;
+}
+.service-icon svg{width:26px;height:26px;}
+.service-card h3{font-size:1.2rem;margin-bottom:10px;}
+.service-card p{color:var(--slate);font-size:.95rem;flex-grow:1;}
+@media (min-width:640px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+@media (min-width:1024px){.services-grid{grid-template-columns:repeat(4,1fr);}}
+
+/* ============ COMO FUNCIONA ============ */
+.how{background:var(--ink);color:var(--white);}
+.how-steps{display:grid;gap:36px;grid-template-columns:1fr;position:relative;}
+.how-step{position:relative;padding-left:0;}
+.how-num{
+  width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(124,92,255,.4);
+  display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:1.2rem;color:var(--amber);margin-bottom:20px;background:rgba(124,92,255,.08);
+}
+.how-step h3{font-size:1.2rem;margin-bottom:10px;}
+.how-step p{color:rgba(245,243,255,.65);font-size:.96rem;}
+@media (min-width:900px){
+  .how-steps{grid-template-columns:repeat(3,1fr);}
+  .how-step::after{
+    content:'';position:absolute;top:28px;left:calc(100% - 8px);width:calc(100% - 40px);
+    height:1px;background:repeating-linear-gradient(90deg,rgba(124,92,255,.5) 0 6px,transparent 6px 12px);
+  }
+  .how-step:last-child::after{display:none;}
+}
+
+/* ============ PRUEBA SOCIAL ============ */
+.social{background:#fff;}
+.testi-grid{display:grid;gap:22px;grid-template-columns:1fr;margin-bottom:56px;}
+.testi-card{background:var(--white);border-radius:var(--radius-lg);padding:28px;border:1px solid var(--border);}
+.testi-stars{color:var(--amber);font-size:.9rem;margin-bottom:14px;letter-spacing:2px;}
+.testi-quote{font-size:.98rem;color:var(--ink);margin-bottom:20px;}
+.testi-person{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--amber));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0;
+}
+.testi-name{font-weight:600;font-size:.9rem;}
+.testi-biz{color:var(--slate);font-size:.82rem;}
+@media (min-width:768px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
+
+.logo-strip{text-align:center;}
+.logo-strip p{font-size:.82rem;color:var(--slate);text-transform:uppercase;letter-spacing:.08em;margin-bottom:24px;}
+.logo-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:36px;}
+.logo-placeholder{
+  width:120px;height:40px;border-radius:8px;background:var(--border);
+  display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:.72rem;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+}
+
+/* ============ PRECIOS ============ */
+.pricing{background:linear-gradient(180deg,#fff 0%,#F5F3FF 100%);}
+.pricing-grid{display:grid;gap:24px;grid-template-columns:1fr;}
+.plan{
+  background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);
+  padding:34px 28px;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease;
+}
+.plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-sm);}
+.plan-featured{border-color:var(--violet);box-shadow:0 24px 48px -24px rgba(124,92,255,.4);position:relative;}
+.plan-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--violet);color:#fff;font-size:.72rem;font-weight:700;padding:5px 14px;border-radius:999px;
+  text-transform:uppercase;letter-spacing:.05em;
+}
+.plan-name{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:6px;}
+.plan-desc{color:var(--slate);font-size:.88rem;margin-bottom:18px;}
+.plan-price{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:22px;color:var(--violet-dark);}
+.plan-price small{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--slate);}
+.plan-features{margin-bottom:28px;flex-grow:1;}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:var(--ink);margin-bottom:12px;}
+.plan-features svg{width:18px;height:18px;color:var(--violet);flex-shrink:0;margin-top:1px;}
+@media (min-width:768px){.pricing-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ============ CTA FINAL ============ */
+.cta-final{background:var(--ink);color:var(--white);}
+.cta-final-wrap{display:grid;gap:48px;grid-template-columns:1fr;align-items:start;}
+.cta-final-text h2{font-size:clamp(1.9rem,3.6vw,2.6rem);margin-bottom:18px;}
+.cta-final-text p{color:rgba(245,243,255,.68);font-size:1.05rem;margin-bottom:28px;}
+.cta-final-direct{
+  display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:var(--radius-md);
+  background:rgba(124,92,255,.1);border:1px solid rgba(124,92,255,.25);
+}
+.cta-final-direct svg{width:30px;height:30px;color:#25D366;flex-shrink:0;}
+.cta-final-direct .label{font-size:.82rem;color:rgba(245,243,255,.6);}
+.cta-final-direct .value{font-weight:600;font-size:1.02rem;}
+
+.contact-form{background:var(--white);border-radius:var(--radius-lg);padding:32px;color:var(--ink);}
+.form-row{margin-bottom:18px;}
+.form-row label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--ink);}
+.form-row input,.form-row textarea{
+  width:100%;padding:13px 15px;border-radius:var(--radius-sm);border:1.5px solid var(--border);
+  font-family:'Inter',sans-serif;font-size:.95rem;background:#fff;transition:border-color .2s;
+}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:var(--violet);}
+.form-row textarea{resize:vertical;min-height:96px;}
+.form-note{font-size:.78rem;color:var(--slate);margin-top:14px;text-align:center;}
+.form-success{
+  display:none;text-align:center;padding:20px 10px;
+}
+.form-success.show{display:block;}
+.form-success svg{width:44px;height:44px;color:var(--violet);margin:0 auto 14px;}
+.form-success h3{font-size:1.15rem;margin-bottom:8px;}
+.form-success p{color:var(--slate);font-size:.92rem;}
+@media (min-width:960px){.cta-final-wrap{grid-template-columns:1.05fr .95fr;}}
+
+/* ============ FOOTER ============ */
+footer{background:#08060f;color:rgba(245,243,255,.7);padding:64px 0 28px;}
+.footer-top{display:grid;gap:40px;grid-template-columns:1fr;margin-bottom:48px;}
+.footer-brand p{margin-top:16px;font-size:.9rem;color:rgba(245,243,255,.5);max-width:280px;}
+.footer-cols{display:grid;gap:32px;grid-template-columns:1fr 1fr;}
+.footer-col h4{font-size:.85rem;text-transform:uppercase;letter-spacing:.06em;color:var(--white);margin-bottom:16px;}
+.footer-col li{margin-bottom:10px;}
+.footer-col a{font-size:.9rem;color:rgba(245,243,255,.55);transition:color .2s;}
+.footer-col a:hover{color:var(--amber);}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--border-dark);
+  display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;
+}
+.footer-social a:hover{border-color:var(--violet);background:rgba(124,92,255,.12);}
+.footer-social svg{width:17px;height:17px;color:var(--white);}
+.footer-bottom{
+  border-top:1px solid var(--border-dark);padding-top:24px;
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.82rem;color:rgba(245,243,255,.4);
+}
+@media (min-width:768px){.footer-top{grid-template-columns:1.2fr 2fr;}}
+@media (min-width:560px){.footer-cols{grid-template-columns:repeat(3,1fr);}}
+
+/* ============ WHATSAPP FLOTANTE ============ */
+.wa-float{
+  position:fixed;bottom:22px;right:22px;z-index:400;
+  width:60px;height:60px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(37,211,102,.6);
+  animation:wa-bounce 2.6s ease-in-out infinite;
+}
+.wa-float svg{width:30px;height:30px;color:#fff;}
+.wa-float:hover{animation-play-state:paused;transform:scale(1.06);}
+@keyframes wa-bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@media (prefers-reduced-motion:reduce){.wa-float{animation:none;}}
+@media (max-width:480px){.wa-float{width:54px;height:54px;bottom:16px;right:16px;}.wa-float svg{width:27px;height:27px;}}
+
+/* Hex-dot decorative pattern used as subtle section texture */
+.hexdots{position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:radial-gradient(rgba(124,92,255,.14) 1.5px,transparent 1.5px);background-size:26px 26px;-webkit-mask-image:linear-gradient(180deg,black,transparent 85%);mask-image:linear-gradient(180deg,black,transparent 85%);}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="wordmark on-dark">
+      <svg class="brandmark" viewBox="0 0 100 100" aria-hidden="true">
+        <g stroke="#7C5CFF" stroke-width="6" fill="none">
+          <line x1="50" y1="50" x2="50" y2="12"/>
+          <line x1="50" y1="50" x2="82.6" y2="31"/>
+          <line x1="50" y1="50" x2="82.6" y2="69"/>
+          <line x1="50" y1="50" x2="50" y2="88"/>
+          <line x1="50" y1="50" x2="17.4" y2="69"/>
+          <line x1="50" y1="50" x2="17.4" y2="31"/>
+        </g>
+        <g fill="#7C5CFF">
+          <circle cx="50" cy="12" r="7"/><circle cx="82.6" cy="31" r="7"/><circle cx="82.6" cy="69" r="7"/>
+          <circle cx="50" cy="88" r="7"/><circle cx="17.4" cy="69" r="7"/><circle cx="17.4" cy="31" r="7"/>
+        </g>
+        <circle class="node-pulse" cx="50" cy="50" r="12" fill="#FFB454"/>
+      </svg>
+      NovaNexus
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-cta-wrap">
+        <a href="#contacto" class="btn btn-primary" style="padding:11px 22px;font-size:.88rem;">Agenda una demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#servicios">Servicios</a>
+  <a href="#como-funciona">Cómo funciona</a>
+  <a href="#precios">Precios</a>
+  <a href="#contacto">Contacto</a>
+  <a href="#contacto" class="btn btn-primary">Agenda una demo</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-net" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+      <g stroke="#7C5CFF" stroke-width="1" opacity="0.35">
+        <line x1="400" y1="120" x2="620" y2="240"/>
+        <line x1="620" y1="240" x2="620" y2="440"/>
+        <line x1="620" y1="440" x2="400" y2="540"/>
+        <line x1="400" y1="540" x2="180" y2="440"/>
+        <line x1="180" y1="440" x2="180" y2="240"/>
+        <line x1="180" y1="240" x2="400" y2="120"/>
+        <line x1="400" y1="120" x2="400" y2="540"/>
+        <line x1="620" y1="240" x2="180" y2="440"/>
+        <line x1="620" y1="440" x2="180" y2="240"/>
+      </g>
+      <g fill="#FFB454" opacity="0.7">
+        <circle cx="400" cy="120" r="4"/><circle cx="620" cy="240" r="4"/><circle cx="620" cy="440" r="4"/>
+        <circle cx="400" cy="540" r="4"/><circle cx="180" cy="440" r="4"/><circle cx="180" cy="240" r="4"/>
+      </g>
+      <circle cx="400" cy="330" r="7" fill="#7C5CFF"/>
+    </svg>
+  </div>
+  <div class="container hero-content">
+    <p class="eyebrow" style="color:var(--amber);">Automatización con IA para negocios locales</p>
+    <h1>Tu negocio, atendido las 24 horas <span>sin contratar a nadie más</span></h1>
+    <p class="hero-sub">NovaNexus conecta tu negocio con inteligencia artificial a medida: recepción, ventas y reservas automatizadas, para que no se te vaya ni un cliente más.</p>
+    <div class="hero-ctas">
+      <a href="#" class="btn btn-primary js-whatsapp-link" data-wa-text="Hola, quiero saber más sobre NovaNexus para mi negocio.">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.3 8.3 0 0 1-4.19-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25m-4.54 4.7c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.72 4.24 3.72 2.1.83 2.53.66 2.99.62.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.1-.22-.16-.46-.28-.24-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.16.24-.64.81-.79.98-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.36-.78-1.86-.2-.49-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01Z"/></svg>
+        Habla con nosotros por WhatsApp
+      </a>
+      <a href="#contacto" class="btn btn-outline">Agenda una demo gratis</a>
+    </div>
+    <div class="hero-trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Sin conocimientos técnicos necesarios</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Implementación en días, no meses</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROBLEMA / AGITACIÓN ============ -->
+<section class="problem section-pad" id="problema">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">¿Te suena familiar?</p>
+      <h2>Cada llamada perdida es una venta que se va con la competencia</h2>
+      <p>Estos son los tres problemas que más le cuestan tiempo y dinero a un negocio local.</p>
+    </div>
+    <div class="problem-grid reveal-stagger">
+      <div class="problem-card reveal reveal-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        </div>
+        <h3>Llamadas perdidas</h3>
+        <p>Mientras atiendes el negocio, el teléfono suena y suena. Cada llamada sin responder es un cliente que prueba con otro negocio.</p>
+      </div>
+      <div class="problem-card reveal reveal-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 15"/></svg>
+        </div>
+        <h3>Respuestas lentas</h3>
+        <p>Un cliente escribe por WhatsApp o Instagram a las 9 de la noche. Si nadie responde en minutos, ya está buscando otra opción.</p>
+      </div>
+      <div class="problem-card reveal reveal-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
+        <h3>Tareas repetitivas</h3>
+        <p>Confirmar citas, contestar las mismas preguntas, tomar pedidos uno por uno... horas que tu equipo podría usar en algo que sí genera valor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="services section-pad" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Lo que hacemos por ti</p>
+      <h2>Soluciones de IA hechas a la medida de tu negocio</h2>
+      <p>No vendemos tecnología genérica. Diseñamos cada solución alrededor de cómo funciona realmente tu negocio.</p>
+    </div>
+    <div class="services-grid reveal-stagger">
+      <div class="service-card reveal reveal-item">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        </div>
+        <h3>Recepcionista AI</h3>
+        <p>Contesta llamadas y mensajes 24/7, responde preguntas frecuentes y atiende a tus clientes como lo haría tu mejor empleado, sin descansos ni costos extra.</p>
+      </div>
+      <div class="service-card reveal reveal-item">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 16l2 2 4-4"/></svg>
+        </div>
+        <h3>Automatización de Reservas</h3>
+        <p>Tus clientes agendan citas o mesas solos, a cualquier hora, directo a tu calendario. Se acabó el "déjame revisar y te confirmo".</p>
+      </div>
+      <div class="service-card reveal reveal-item">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Chatbots de Ventas</h3>
+        <p>Un asistente que responde dudas, recomienda productos y cierra ventas por WhatsApp, Instagram o tu página web, incluso mientras duermes.</p>
+      </div>
+      <div class="service-card reveal reveal-item">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-4 0H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <h3>Integraciones a Medida</h3>
+        <p>Conectamos la IA con las herramientas que ya usas: tu sistema de pedidos, tu calendario, tu CRM. Todo trabajando junto, sin fricciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CÓMO FUNCIONA ============ -->
+<section class="how section-pad on-dark" id="como-funciona">
+  <div class="hexdots" aria-hidden="true"></div>
+  <div class="container" style="position:relative;">
+    <div class="section-head reveal">
+      <p class="eyebrow">Nuestro proceso</p>
+      <h2>De la idea a funcionando, en tres pasos</h2>
+      <p>Sin procesos eternos ni jerga técnica. Así de simple trabajamos contigo.</p>
+    </div>
+    <div class="how-steps reveal-stagger">
+      <div class="how-step reveal reveal-item">
+        <div class="how-num">1</div>
+        <h3>Diagnóstico</h3>
+        <p>Platicamos sobre tu negocio, identificamos en dónde estás perdiendo tiempo y clientes, y diseñamos la solución que más sentido tiene para ti.</p>
+      </div>
+      <div class="how-step reveal reveal-item">
+        <div class="how-num">2</div>
+        <h3>Implementación</h3>
+        <p>Configuramos y entrenamos la IA con la información real de tu negocio. Tú apruebas cada paso, sin sorpresas.</p>
+      </div>
+      <div class="how-step reveal reveal-item">
+        <div class="how-num">3</div>
+        <h3>Soporte continuo</h3>
+        <p>Monitoreamos resultados, ajustamos y mejoramos. Estamos contigo después de la entrega, no solo el primer día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRUEBA SOCIAL ============ -->
+<section class="social section-pad" id="clientes">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Negocios que ya confían en nosotros</p>
+      <h2>Resultados reales, en negocios reales</h2>
+      <p>Así describen dueños de negocio su experiencia trabajando con NovaNexus. <em>(Espacio para testimonios reales de tus primeros clientes.)</em></p>
+    </div>
+    <div class="testi-grid reveal-stagger">
+      <div class="testi-card reveal reveal-item">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Dejamos de perder reservas los fines de semana. Ahora los clientes agendan solos, incluso a media noche."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-biz">Restaurante — Ciudad</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-item">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"El chatbot contesta las preguntas de siempre y a mí me deja tiempo para atender a los pacientes."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">DL</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-biz">Clínica dental — Ciudad</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-item">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Ya no se nos van las ventas por no contestar a tiempo. Se pagó solo en el primer mes."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">AS</div>
+          <div>
+            <div class="testi-name">Nombre del cliente</div>
+            <div class="testi-biz">Salón de belleza — Ciudad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="logo-strip reveal">
+      <p>Negocios locales que confían en NovaNexus</p>
+      <div class="logo-row">
+        <div class="logo-placeholder">Logo 1</div>
+        <div class="logo-placeholder">Logo 2</div>
+        <div class="logo-placeholder">Logo 3</div>
+        <div class="logo-placeholder">Logo 4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRECIOS ============ -->
+<section class="pricing section-pad" id="precios">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Planes</p>
+      <h2>Un plan para cada etapa de tu negocio</h2>
+      <p>Precios definidos según lo que tu negocio necesita. Sin contratos forzosos, sin letras chiquitas.</p>
+    </div>
+    <div class="pricing-grid reveal-stagger">
+      <div class="plan reveal reveal-item">
+        <div class="plan-name">Esencial</div>
+        <p class="plan-desc">Para empezar a automatizar tu canal principal de contacto.</p>
+        <div class="plan-price">Cotización <small>personalizada</small></div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Recepcionista AI en un canal (WhatsApp o llamadas)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Respuestas a preguntas frecuentes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Reporte mensual de desempeño</li>
+        </ul>
+        <a href="#contacto" class="btn btn-ghost btn-block">Cotizar este plan</a>
+      </div>
+      <div class="plan plan-featured reveal reveal-item">
+        <div class="plan-badge">Más elegido</div>
+        <div class="plan-name">Crecimiento</div>
+        <p class="plan-desc">Para negocios que quieren automatizar ventas y reservas por completo.</p>
+        <div class="plan-price">Cotización <small>personalizada</small></div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Recepcionista AI multicanal (WhatsApp, web, llamadas)</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Automatización de reservas y agenda</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Chatbot de ventas entrenado con tu catálogo</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Soporte prioritario</li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary btn-block">Cotizar este plan</a>
+      </div>
+      <div class="plan reveal reveal-item">
+        <div class="plan-name">A Medida</div>
+        <p class="plan-desc">Para negocios con procesos particulares o varias sucursales.</p>
+        <div class="plan-price">Cotización <small>personalizada</small></div>
+        <ul class="plan-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Todo lo del plan Crecimiento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Integraciones con tus sistemas actuales</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Automatizaciones a medida para tu operación</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Acompañamiento dedicado</li>
+        </ul>
+        <a href="#contacto" class="btn btn-ghost btn-block">Hablar con un asesor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final section-pad on-dark" id="contacto">
+  <div class="container">
+    <div class="cta-final-wrap">
+      <div class="cta-final-text reveal">
+        <p class="eyebrow">Hablemos</p>
+        <h2>¿Listo para dejar de perder clientes?</h2>
+        <p>Cuéntanos sobre tu negocio y te mostramos, sin compromiso, cómo la IA puede ayudarte a atender más clientes con menos esfuerzo.</p>
+        <div class="cta-final-direct">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.3 8.3 0 0 1-4.19-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25m-4.54 4.7c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.72 4.24 3.72 2.1.83 2.53.66 2.99.62.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.1-.22-.16-.46-.28-.24-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.16.24-.64.81-.79.98-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.36-.78-1.86-.2-.49-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01Z"/></svg>
+          <div>
+            <div class="label">O escríbenos directo por WhatsApp</div>
+            <a href="#" class="value js-whatsapp-link" data-wa-text="Hola, quiero agendar una demo con NovaNexus.">+52 55 0000 0000</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div id="formFields">
+            <div class="form-row">
+              <label for="fname">Nombre</label>
+              <input type="text" id="fname" name="fname" placeholder="¿Cómo te llamas?" required>
+            </div>
+            <div class="form-row">
+              <label for="fbiz">Negocio</label>
+              <input type="text" id="fbiz" name="fbiz" placeholder="Nombre de tu negocio" required>
+            </div>
+            <div class="form-row">
+              <label for="fphone">Teléfono</label>
+              <input type="tel" id="fphone" name="fphone" placeholder="Tu número de WhatsApp" required>
+            </div>
+            <div class="form-row">
+              <label for="fmsg">Mensaje</label>
+              <textarea id="fmsg" name="fmsg" placeholder="Cuéntanos qué te gustaría automatizar"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.3 8.3 0 0 1-4.19-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25"/></svg>
+              Enviar y continuar por WhatsApp
+            </button>
+            <p class="form-note">Al enviar, se abrirá WhatsApp con tu mensaje listo para confirmar el envío.</p>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg>
+            <h3>¡Casi listo!</h3>
+            <p>Abrimos WhatsApp con tu mensaje. Solo confirma el envío para que empecemos a platicar sobre tu negocio.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="wordmark on-dark">
+          <svg class="brandmark" viewBox="0 0 100 100" aria-hidden="true">
+            <g stroke="#7C5CFF" stroke-width="6" fill="none">
+              <line x1="50" y1="50" x2="50" y2="12"/><line x1="50" y1="50" x2="82.6" y2="31"/>
+              <line x1="50" y1="50" x2="82.6" y2="69"/><line x1="50" y1="50" x2="50" y2="88"/>
+              <line x1="50" y1="50" x2="17.4" y2="69"/><line x1="50" y1="50" x2="17.4" y2="31"/>
+            </g>
+            <g fill="#7C5CFF">
+              <circle cx="50" cy="12" r="7"/><circle cx="82.6" cy="31" r="7"/><circle cx="82.6" cy="69" r="7"/>
+              <circle cx="50" cy="88" r="7"/><circle cx="17.4" cy="69" r="7"/><circle cx="17.4" cy="31" r="7"/>
+            </g>
+            <circle cx="50" cy="50" r="12" fill="#FFB454"/>
+          </svg>
+          NovaNexus
+        </a>
+        <p>Inteligencia que conecta negocios. Automatización de IA a medida para negocios locales.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V8h4v1.5A5 5 0 0 1 16 8z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#como-funciona">Cómo funciona</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="#" class="js-whatsapp-link" data-wa-text="Hola, quiero más información sobre NovaNexus.">WhatsApp: +52 55 0000 0000</a></li>
+            <li><a href="mailto:hola@novanexus.ai">hola@novanexus.ai</a></li>
+            <li>Atendemos negocios locales en toda la ciudad</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Aviso de privacidad</a></li>
+            <li><a href="#">Términos de servicio</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> NovaNexus. Todos los derechos reservados.</span>
+      <span>Inteligencia que conecta negocios.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOTANTE ============ -->
+<a href="#" class="wa-float js-whatsapp-link" data-wa-text="Hola, me gustaría saber más sobre NovaNexus." aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.82c0 4.55-3.7 8.24-8.25 8.24a8.3 8.3 0 0 1-4.19-1.14l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25m-4.54 4.7c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.03s.87 2.35.99 2.51c.12.16 1.7 2.72 4.24 3.72 2.1.83 2.53.66 2.99.62.46-.04 1.48-.6 1.69-1.19.21-.58.21-1.08.15-1.19-.06-.1-.22-.16-.46-.28-.24-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.16.24-.64.81-.79.98-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.35-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.31-.02-.43-.06-.12-.56-1.36-.78-1.86-.2-.49-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01Z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Configuración: reemplazar con el número real del negocio (formato internacional, sin + ni espacios) ----
+  var WHATSAPP_NUMBER = "525500000000";
+
+  function buildWaLink(text){
+    return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text || "Hola, quiero más información sobre NovaNexus.");
+  }
+
+  document.querySelectorAll(".js-whatsapp-link").forEach(function(el){
+    el.setAttribute("href", buildWaLink(el.getAttribute("data-wa-text")));
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+  });
+
+  // ---- Nav: fondo al hacer scroll ----
+  var nav = document.getElementById("nav");
+  function onScroll(){
+    if(window.scrollY > 30){ nav.classList.add("scrolled"); }
+    else{ nav.classList.remove("scrolled"); }
+  }
+  document.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  // ---- Menú móvil ----
+  var hamburger = document.getElementById("hamburger");
+  var mobileNav = document.getElementById("mobileNav");
+  hamburger.addEventListener("click", function(){
+    var open = mobileNav.classList.toggle("open");
+    hamburger.classList.toggle("open", open);
+    hamburger.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  });
+  mobileNav.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      mobileNav.classList.remove("open");
+      hamburger.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    });
+  });
+
+  // ---- Animaciones al hacer scroll ----
+  var revealEls = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:"0px 0px -40px 0px"});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add("is-visible"); });
+  }
+
+  // ---- Formulario de contacto -> WhatsApp ----
+  var form = document.getElementById("contactForm");
+  var fields = document.getElementById("formFields");
+  var success = document.getElementById("formSuccess");
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    var name = document.getElementById("fname").value.trim();
+    var biz = document.getElementById("fbiz").value.trim();
+    var phone = document.getElementById("fphone").value.trim();
+    var msg = document.getElementById("fmsg").value.trim();
+
+    if(!name || !biz || !phone){
+      [["fname",name],["fbiz",biz],["fphone",phone]].forEach(function(pair){
+        var input = document.getElementById(pair[0]);
+        input.style.borderColor = pair[1] ? "" : "#E4574C";
+      });
+      return;
+    }
+
+    var text = "Hola, soy " + name + " de " + biz + ". Mi teléfono es " + phone + "." +
+      (msg ? " " + msg : " Me gustaría saber más sobre cómo NovaNexus puede ayudar a mi negocio.");
+
+    fields.style.display = "none";
+    success.classList.add("show");
+
+    window.open(buildWaLink(text), "_blank", "noopener");
+  });
+
+  // ---- Año en footer ----
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
